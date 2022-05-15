@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>hu.nye.progkorny</groupId>
 	<artifactId>users-managament-tool</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2</version>
 	<name>users-managament-tool</name>
 	<description>Users management tool</description>
 	<properties>
