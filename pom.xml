@@ -13,7 +13,7 @@
 	<version>0.0.2</version>
 	<name>users-managament-tool</name>
 	<description>Users management tool</description>
-
+	<packaging>pom</packaging>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
