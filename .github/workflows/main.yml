@@ -81,12 +81,12 @@ jobs:
         run: heroku container:login
       - name: Get image from packages, tag and push to Heroku
         run: |
-          docker pull ghcr.io/szabics/nye-progkorny-ugyfelnyilvantarto:${{ env.ARTIFACT_VERSION }}
-          docker tag ghcr.io/szabics/nye-progkorny-ugyfelnyilvantarto:${{ env.ARTIFACT_VERSION }} registry.heroku.com/${{ env.HEROKU_APP_NAME }}
+          docker pull ghcr.io/szabics/nye-progkorny-ugyfelnyilvantarto:${{ env.ARTIFACT_VERSION }}/web
+          docker tag ghcr.io/szabics/nye-progkorny-ugyfelnyilvantarto:${{ env.ARTIFACT_VERSION }} registry.heroku.com/${{ env.HEROKU_APP_NAME }}/web
           docker push registry.heroku.com/${{ env.HEROKU_APP_NAME }}
         env:
           ARTIFACT_VERSION: ${{ needs.build.outputs.artifactVersion }}
       - name: Release app on Heroku
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: heroku container:release -a ${{ env.HEROKU_APP_NAME }}
+        run: heroku container:release -a ${{ env.HEROKU_APP_NAME }} web
