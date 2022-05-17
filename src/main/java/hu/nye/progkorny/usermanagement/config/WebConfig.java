@@ -1,4 +1,4 @@
-package hu.nye.progkor.warehouse.config;
+package hu.nye.progkorny.usermanagement.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
