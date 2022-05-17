@@ -89,4 +89,4 @@ jobs:
       - name: Release app on Heroku
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: heroku container:release -a ${{ env.HEROKU_APP_NAME }} web
+        run: heroku container:release -a ${{ env.HEROKU_APP_NAME }}
