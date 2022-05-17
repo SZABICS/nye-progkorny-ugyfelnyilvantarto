@@ -1,0 +1,83 @@
+package hu.nye.progkor.usermanagement.controller;
+
+import java.util.List;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+@Controller
+@Slf4j
+@RequiredArgsConstructor
+@RequestMapping("/")
+public class UsersManagementController {
+/*
+    private final WareHouseService wareHouseService;
+    private final ProductService productService;
+    private final Converter<ProductDTO, ProductResponse> productDtoToResponseConverter;
+    private final Converter<WareHouseDTO, WareHouseResponse> wareHouseDTOWareHouseResponseConverter;
+
+    @GetMapping("/list.html")
+    public ModelAndView getWareHouses() {
+        log.info("Get WareHouses.");
+        final ModelAndView warehouseListView = new ModelAndView("warehouses/list");
+        final List<WareHouseResponse> wareHouses = wareHouseService.getWareHouses().stream()
+                .map(wareHouseDTOWareHouseResponseConverter::convert)
+                .toList();
+        warehouseListView.addObject("warehouses", wareHouses);
+        return warehouseListView;
+    }
+
+    @ResponseBody
+    @GetMapping("/{id}")
+    public ModelAndView getWarehouse(final @PathVariable Long id) {
+        log.info("Get a Warehouse with ID:{}", id);
+        final ModelAndView warehouseView = new ModelAndView("warehouses/warehouse");
+        final WareHouseDTO wareHouse = wareHouseService.getWareHouse(id);
+        final WareHouseResponse wareHouseResponse = wareHouseDTOWareHouseResponseConverter.convert(wareHouse);
+        warehouseView.addObject("warehouse", wareHouseResponse);
+        return warehouseView;
+    }
+
+    @GetMapping("/products/{id}/assign.html")
+    public String loadAssignProductToWareHouse(final Model model,
+                                               final @PathVariable("id") Long id) {
+        log.info("Loads Product assigning form to Warehouse, Product ID:{}", id);
+        final ProductResponse product = productDtoToResponseConverter.convert(productService.getProduct(id));
+        final List<WareHouseResponse> wareHouses = wareHouseService.getWareHouses().stream()
+                .map(wareHouseDTOWareHouseResponseConverter::convert)
+                .toList();
+        model.addAttribute("warehouses", wareHouses);
+        model.addAttribute("product", product);
+        return "warehouses/assign";
+    }
+
+    @PostMapping("/products/assign")
+    public String assignProductToWareHouse(final RedirectAttributes redirectAttributes,
+                                           final @RequestParam(value = "productId", required = false) Long productId,
+                                           final @RequestParam(value = "warehouseId", required = false) Long warehouseId,
+                                           final @RequestParam(value = "quantity", required = false) Long quantity) {
+        log.info("Assign {} pieces Products:{} to Warehouse:{}", quantity, productId, warehouseId);
+        try {
+            wareHouseService.moveProductsToWareHouse(warehouseId, productId, quantity);
+            redirectAttributes.addFlashAttribute("success", true);
+            redirectAttributes.addFlashAttribute("message", "Sikeres termék hozzárendelés.");
+            return "redirect:/warehouses/list.html";
+        } catch (NotFoundException | NotEnoughWareHouseCapacityException | NoStorageException e) {
+            redirectAttributes.addFlashAttribute("success", false);
+            redirectAttributes.addFlashAttribute("message", e.getMessage());
+            return "redirect:/products/list.html";
+        }
+    }
+
+ */
+}

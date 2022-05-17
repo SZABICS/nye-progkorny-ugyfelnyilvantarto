@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ügyfélnyílvántartó - Ügyfél hozzáadása</title>
+    <link rel="stylesheet"
+          th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}"/>
+    <script th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+<div th:insert="~{common/header :: navbar}"></div>
+
+<div class="container">
+
+    <h1 class="pt-5">Ügyfél felvitele</h1>
+
+    <div th:if="${success != null}">
+        <div th:if="${success}"
+             class="alert alert-success"
+             role="alert">
+            <p>Sikeres művelet végrehajtás!</p>
+            <div class="col-md-4 mt-5">
+                <div class="form-group">
+                    <label>Ügyfél adatai</label>
+                </div>
+                <div class="form-group">
+                    <label for="saved_last_name">Vezetéknév</label>
+                    <input type="text"
+                           id="saved_last_name"
+                           th:value="${user != null ? user.last_name : 'Üres'}"
+                           class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="saved_first_name">Keresztnév</label>
+                    <input type="text"
+                           id="saved_first_name"
+                           th:value="${user != null ? user.first_name : 'Üres'}"
+                           class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="saved_e_mail">E-mail cím</label>
+                    <input type="text"
+                           id="saved_e_mail"
+                           th:value="${user != null ? user.e_mail : 'Üres'}"
+                           class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="saved_phone">Telefonszám</label>
+                    <input type="text"
+                           id="saved_phone"
+                           th:value="${user != null ? user.phone : 'Üres'}"
+                           class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="saved_company">Cégnév</label>
+                    <input type="text"
+                           id="saved_company"
+                           th:value="${user != null ? user.company : 'Üres'}"
+                           class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="saved_tax_code">Adószám</label>
+                    <input type="text"
+                           id="saved_tax_code"
+                           th:value="${user != null ? user.tax_code : 'Üres'}"
+                           class="form-control"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="saved_is_still_partner">Aktív Partner</label>
+                    <select type="text"
+                           id="saved_is_still_partner"
+                           th:value="${user != null ? user.is_still_partner : 1}"
+                           class="form-control">
+                        <option value="1" selected>Aktív</option>
+                        <option value="0" selected>Inaktív</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div th:unless="${success}"
+             class="alert alert-danger"
+             role="alert">
+            <p>Sikertelen művelet végrehajtás!</p>
+            <p th:value="${message}"></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mt-5">
+            <form method="post"
+                  th:action="@{/users/adduser}">
+                <div class="form-group">
+                    <label>Új Ügyfél</label>
+                </div>
+                <div class="col-md-4 mt-5">
+                    <div class="form-group">
+                        <label for="saved_last_name">Vezetéknév</label>
+                        <input type="text"
+                               th:name="last_name"
+                               th:value="${user != null ? user.last_name : 'Üres'}"
+                               class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="saved_first_name">Keresztnév</label>
+                        <input type="text"
+                               th:name="first_name"
+                               th:value="${user != null ? user.first_name : 'Üres'}"
+                               class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="saved_e_mail">E-mail cím</label>
+                        <input type="text"
+                               th:name="e_mail"
+                               th:value="${user != null ? user.e_mail : 'Üres'}"
+                               class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="saved_phone">Telefonszám</label>
+                        <input type="text"
+                               th:name="phone"
+                               th:value="${user != null ? user.phone : 'Üres'}"
+                               class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="saved_company">Cégnév</label>
+                        <input type="text"
+                               th:name="company"
+                               th:value="${user != null ? user.company : 'Üres'}"
+                               class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="saved_tax_code">Adószám</label>
+                        <input type="text"
+                               th:name="tax_code"
+                               th:value="${user != null ? user.tax_code : 'Üres'}"
+                               class="form-control"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="saved_is_still_partner">Aktív Partner</label>
+                        <select type="text"
+                                th:name="is_still_partner"
+                                th:value="${user != null ? user.is_still_partner : 1}"
+                                class="form-control">
+                            <option value="1" selected>Aktív</option>
+                            <option value="0" selected>Inaktív</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn btn-primary pt-2"
+                        type="submit">Termék készítés
+                </button>
+                <a th:href="@{/users/list.html}"
+                   class="btn btn-secondary pt-2"
+                   type="submit">Mégsem</a>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+</script>
+
+</body>
+</html>
