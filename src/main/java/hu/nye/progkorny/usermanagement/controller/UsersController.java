@@ -1,7 +1,6 @@
 package hu.nye.progkorny.usermanagement.controller;
 
 import hu.nye.progkorny.usermanagement.model.entities.Users;
-import hu.nye.progkorny.usermanagement.model.repository.UsersRepository;
 import hu.nye.progkorny.usermanagement.model.request.UsersRequest;
 import hu.nye.progkorny.usermanagement.model.response.UsersResponse;
 import org.springframework.core.convert.converter.Converter;
@@ -26,8 +25,8 @@ public class UsersController {
     private static final String REDIRECT_URL_FOR_USER_EDIT = "users/edit";
     private static final String REDIRECT_URL_FOR_USER_CREATE = "users/create";
 
-    @Autowired
-    UsersRepository usersRepository;
+    /*@Autowired
+    UsersRepository usersRepository;*/
 
     private List<Users> users = Users.getExists();
 
