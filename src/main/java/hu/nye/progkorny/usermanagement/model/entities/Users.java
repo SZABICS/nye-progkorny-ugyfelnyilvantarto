@@ -1,9 +1,5 @@
 package hu.nye.progkorny.usermanagement.model.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
 import lombok.*;
 import lombok.ToString;
 
@@ -16,11 +12,8 @@ import java.util.List;
 @Setter
 @EqualsAndHashCode
 @ToString
-@Entity
 public class Users {
 
-    @Id
-    @GeneratedValue
     private Integer id;
     private String first_name;
     private String last_name;
