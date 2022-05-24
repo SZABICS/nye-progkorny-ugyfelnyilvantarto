@@ -1,8 +1,6 @@
 package hu.nye.progkorny.usermanagement.controller;
 
 import hu.nye.progkorny.usermanagement.model.entities.Users;
-import hu.nye.progkorny.usermanagement.model.request.UsersRequest;
-import hu.nye.progkorny.usermanagement.model.response.UsersResponse;
 import org.springframework.core.convert.converter.Converter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
