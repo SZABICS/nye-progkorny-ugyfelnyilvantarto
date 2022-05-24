@@ -1,9 +1,9 @@
-package hu.nye.progkorny.usermanagement.model.request;
+/*package hu.nye.progkorny.usermanagement.model.request;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-import lombok.*;
-
+import lombok.*;*/
+/*
 @Builder
 @EqualsAndHashCode
 @Getter
@@ -24,3 +24,4 @@ public class UsersRequest {
     @JsonPOJOBuilder(withPrefix = "")
     public static class UsersRequestBuilder {}
 }
+*/
