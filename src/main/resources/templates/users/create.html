@@ -28,54 +28,43 @@
                     <label for="saved_lastName">Vezetéknév</label>
                     <input type="text"
                            id="saved_lastName"
-                           th:value="${user != null ? user.lastName : 'Üres'}"
+                           th:value="${user != null ? user.lastName : ''}"
                            class="form-control"/>
                 </div>
                 <div class="form-group">
                     <label for="saved_firstName">Keresztnév</label>
                     <input type="text"
                            id="saved_firstName"
-                           th:value="${user != null ? user.firstName : 'Üres'}"
+                           th:value="${user != null ? user.firstName : ''}"
                            class="form-control"/>
                 </div>
                 <div class="form-group">
                     <label for="saved_mailAddress">E-mail cím</label>
                     <input type="text"
                            id="saved_mailAddress"
-                           th:value="${user != null ? user.mailAddress : 'Üres'}"
+                           th:value="${user != null ? user.mailAddress : ''}"
                            class="form-control"/>
                 </div>
                 <div class="form-group">
                     <label for="saved_phone">Telefonszám</label>
                     <input type="text"
                            id="saved_phone"
-                           th:value="${user != null ? user.phone : 'Üres'}"
+                           th:value="${user != null ? user.phone : ''}"
                            class="form-control"/>
                 </div>
                 <div class="form-group">
                     <label for="saved_company">Cégnév</label>
                     <input type="text"
                            id="saved_company"
-                           th:value="${user != null ? user.company : 'Üres'}"
+                           th:value="${user != null ? user.company : ''}"
                            class="form-control"/>
                 </div>
                 <div class="form-group">
                     <label for="saved_taxCode">Adószám</label>
                     <input type="text"
                            id="saved_taxCode"
-                           th:value="${user != null ? user.taxCode : 'Üres'}"
+                           th:value="${user != null ? user.taxCode : ''}"
                            class="form-control"/>
-                </div>
-
-                <div class="form-group">
-                    <label for="saved_isStillPartner">Aktív Partner</label>
-                    <select type="text"
-                           id="saved_isStillPartner"
-                           th:value="${user != null ? user.isStillPartner : 1}"
-                           class="form-control">
-                        <option value="1" selected>Aktív</option>
-                        <option value="0" selected>Inaktív</option>
-                    </select>
                 </div>
             </div>
         </div>
@@ -91,71 +80,60 @@
         <div class="col-md-4 mt-5">
             <form method="post"
                   th:action="@{/users/adduser}">
-                <div class="form-group">
-                    <label>Új Ügyfél</label>
-                </div>
                 <div class="col-md-4 mt-5">
                     <div class="form-group">
                         <label for="saved_lastName">Vezetéknév</label>
                         <input type="text"
                                th:name="lastName"
-                               th:value="${user != null ? user.lastName : 'Üres'}"
+                               th:value="${user != null ? user.lastName : ''}"
                                class="form-control"/>
                     </div>
                     <div class="form-group">
                         <label for="saved_firstName">Keresztnév</label>
                         <input type="text"
                                th:name="firstName"
-                               th:value="${user != null ? user.firstName : 'Üres'}"
+                               th:value="${user != null ? user.firstName : ''}"
                                class="form-control"/>
                     </div>
                     <div class="form-group">
                         <label for="saved_mailAddress">E-mail cím</label>
                         <input type="text"
                                th:name="mailAddress"
-                               th:value="${user != null ? user.mailAddress : 'Üres'}"
+                               th:value="${user != null ? user.mailAddress : ''}"
                                class="form-control"/>
                     </div>
                     <div class="form-group">
                         <label for="saved_phone">Telefonszám</label>
                         <input type="text"
                                th:name="phone"
-                               th:value="${user != null ? user.phone : 'Üres'}"
+                               th:value="${user != null ? user.phone : ''}"
                                class="form-control"/>
                     </div>
                     <div class="form-group">
                         <label for="saved_company">Cégnév</label>
                         <input type="text"
                                th:name="company"
-                               th:value="${user != null ? user.company : 'Üres'}"
+                               th:value="${user != null ? user.company : ''}"
                                class="form-control"/>
                     </div>
                     <div class="form-group">
                         <label for="saved_taxCode">Adószám</label>
                         <input type="text"
                                th:name="taxCode"
-                               th:value="${user != null ? user.taxCode : 'Üres'}"
+                               th:value="${user != null ? user.taxCode : ''}"
                                class="form-control"/>
                     </div>
-
-                    <div class="form-group">
-                        <label for="saved_isStillPartner">Aktív Partner</label>
-                        <select type="text"
-                                th:name="isStillPartner"
-                                th:value="${user != null ? user.isStillPartner : 1}"
-                                class="form-control">
-                            <option value="1" selected>Aktív</option>
-                            <option value="0" selected>Inaktív</option>
-                        </select>
-                    </div>
                 </div>
+                <br/>
+                <br/>
                 <button class="btn btn-primary pt-2"
-                        type="submit">Termék készítés
+                        type="submit">Hozzáadás
                 </button>
-                <a th:href="@{/users/list.html}"
+                <a th:href="@{/users/alluser}"
                    class="btn btn-secondary pt-2"
                    type="submit">Mégsem</a>
             </form>
+            <br/>
         </div>
     </div>
 

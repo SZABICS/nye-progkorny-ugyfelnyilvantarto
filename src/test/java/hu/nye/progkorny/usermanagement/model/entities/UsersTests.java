@@ -16,7 +16,7 @@ public class UsersTests {
     @BeforeEach
     public void init() {
         users = Users.getExists();
-        testUser = new Users(1, "Elek", "Teszt", "teszt@teszt.hu", "+36705130022", "12345678-9-12", "Tesz Cég", 1);
+        testUser = new Users(1, "Elek", "Teszt", "teszt@teszt.hu", "+36705130022", "12345678-9-12", "Tesz Cég");
         testSecond = users.get(0);
     }
 
@@ -38,11 +38,6 @@ public class UsersTests {
     }
 
     @Test
-    public void testIsStillPartnerGivesBackRightValue() {
-        Assertions.assertEquals(testUser.getIsStillPartner(), 1);
-    }
-
-    @Test
     public void testNoArgsContructor() {
         Users users1 = new Users();
         Assertions.assertNotNull(users1);
@@ -55,7 +50,6 @@ public class UsersTests {
         testUser.setLastName("Másik teszt");
         testUser.setMailAddress("t@b.c");
         testUser.setPhone("abc");
-        testUser.setIsStillPartner(0);
         testUser.setTaxCode("111");
         testUser.setCompany("T Kft");
 
@@ -63,7 +57,6 @@ public class UsersTests {
         Assertions.assertEquals("Másik teszt", testUser.getLastName());
         Assertions.assertEquals("t@b.c", testUser.getMailAddress());
         Assertions.assertEquals("abc", testUser.getPhone());
-        Assertions.assertEquals(0, testUser.getIsStillPartner());
         Assertions.assertEquals("111", testUser.getTaxCode());
         Assertions.assertEquals("T Kft", testUser.getCompany());
     }

@@ -67,17 +67,6 @@
                            th:value="${user != null ? user.taxCode : 'Üres'}"
                            class="form-control"/>
                 </div>
-
-                <div class="form-group">
-                    <label for="saved_isStillPartner">Aktív Partner</label>
-                    <select type="text"
-                            id="saved_isStillPartner"
-                            th:value="${user != null ? user.isStillPartner : 1}"
-                            class="form-control">
-                        <option value="1" selected>Aktív</option>
-                        <option value="0" selected>Inaktív</option>
-                    </select>
-                </div>
             </div>
         </div>
         <div th:unless="${success}"
@@ -92,9 +81,6 @@
         <div class="col-md-4 mt-5">
             <form method="post"
                   th:action="@{'/users/update/' + ${user.id}}">
-                <div class="form-group">
-                    <label>Új Ügyfél</label>
-                </div>
 
                     <input type="hidden"
                            th:name="id"
@@ -144,25 +130,17 @@
                                th:value="${user != null ? user.taxCode : 'Üres'}"
                                class="form-control"/>
                     </div>
-
-                    <div class="form-group">
-                        <label for="saved_isStillPartner">Aktív Partner</label>
-                        <select type="text"
-                                th:name="isStillPartner"
-                                th:value="${user != null ? user.isStillPartner : 1}"
-                                class="form-control">
-                            <option value="1" selected>Aktív</option>
-                            <option value="0" selected>Inaktív</option>
-                        </select>
-                    </div>
                 </div>
+                <br/>
+                <br/>
                 <button class="btn btn-primary pt-2"
                         type="submit">Szerkesztés
                 </button>
-                <a th:href="@{/users/list.html}"
+                <a th:href="@{/users/alluser}"
                    class="btn btn-secondary pt-2"
                    type="submit">Mégsem</a>
             </form>
+            <br/>
         </div>
     </div>
 

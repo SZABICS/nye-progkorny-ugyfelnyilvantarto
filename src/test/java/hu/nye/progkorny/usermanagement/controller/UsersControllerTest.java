@@ -37,7 +37,7 @@ public class UsersControllerTest {
     @Test
     public void shouldReturnDefaultMessage() throws Exception {
         this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk())
-                .andExpect(content().string(containsString("<h1>Ügyfélnyílvántartó</h1>")));
+                .andExpect(content().string(containsString("Ügyfélnyílvántartó")));
     }
 
     @Test
