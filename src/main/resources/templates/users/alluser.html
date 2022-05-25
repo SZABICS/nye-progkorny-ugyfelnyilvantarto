@@ -36,13 +36,13 @@
         <tr th:each="user: ${users}">
             <th scope="row"
                 th:text="${user.id}"></th>
-            <td th:text="${user.last_name}"></td>
-            <td th:text="${user.first_name}"></td>
-            <td th:text="${user.e_mail}"></td>
+            <td th:text="${user.lastName}"></td>
+            <td th:text="${user.firstName}"></td>
+            <td th:text="${user.mailAddress}"></td>
             <td th:text="${user.phone}"></td>
-            <td th:text="${user.tax_code}"></td>
+            <td th:text="${user.taxCode}"></td>
             <td th:text="${user.company}"></td>
-            <td th:text="${user.is_still_partner == 1 ? 'Aktív' : 'Inaktív'}"></td>
+            <td th:text="${user.isStillPartner == 1 ? 'Aktív' : 'Inaktív'}"></td>
             <td>
                 <a class="btn btn-lg btn-primary"
                    th:href="@{'/users/load/' + ${user.id}}">Szerkesztés</a>
