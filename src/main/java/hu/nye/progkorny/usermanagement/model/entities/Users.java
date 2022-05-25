@@ -8,10 +8,9 @@ import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode
 @Getter
 @Setter
-@EqualsAndHashCode
-@ToString
 public class Users {
 
     private Integer id;
@@ -28,5 +27,12 @@ public class Users {
        users.add(new Users(1, "Elek", "Teszt", "teszt@teszt.hu", "+36705130022", "12345678-9-12", "Tesz Cég", 1));
        users.add(new Users(2, "Issza", "Bornem", "teszt@bornemissza.hu", "06706533122", "87654321-9-12", "Bor-Bor Kft.", 1));
        return users;
+    }
+
+    public static Users streamUsersAndGiveBackResultById(List<Users> users, Integer id) {
+        return users.stream()
+                .filter(customer -> id.equals(customer.getId()))
+                .findAny()
+                .orElse(null);
     }
 }
