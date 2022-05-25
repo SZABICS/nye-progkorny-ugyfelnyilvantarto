@@ -26,15 +26,14 @@ public class Users {
     private String phone;
     private String taxCode;
     private String company;
-    private Integer isStillPartner;
 
     /**
      * It's fill a List - Users with some data for tests.
      */
     public static List<Users> getExists() {
         List<Users> users = new ArrayList<>();
-        users.add(new Users(1, "Elek", "Teszt", "teszt@teszt.hu", "+36705130022", "12345678-9-12", "Tesz Cég", 1));
-        users.add(new Users(2, "Issza", "Bornem", "teszt@bornemissza.hu", "06706533122", "87654321-9-12", "Bor-Bor Kft.", 1));
+        users.add(new Users(1, "Elek", "Teszt", "teszt@teszt.hu", "+36705130022", "12345678-9-12", "Tesz Cég"));
+        users.add(new Users(2, "Issza", "Bornem", "teszt@bornemissza.hu", "06706533122", "87654321-9-12", "Bor-Bor Kft."));
         return users;
     }
 

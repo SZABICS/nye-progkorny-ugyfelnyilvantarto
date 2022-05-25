@@ -28,7 +28,6 @@
             <th scope="col">Telefonszám</th>
             <th scope="col">Adószám</th>
             <th scope="col">Cégnév</th>
-            <th scope="col">Aktív partner</th>
             <th scope="col">Művelet</th>
         </tr>
         </thead>
@@ -42,7 +41,6 @@
             <td th:text="${user.phone}"></td>
             <td th:text="${user.taxCode}"></td>
             <td th:text="${user.company}"></td>
-            <td th:text="${user.isStillPartner == 1 ? 'Aktív' : 'Inaktív'}"></td>
             <td>
                 <a class="btn btn-lg btn-primary"
                    th:href="@{'/users/load/' + ${user.id}}">Szerkesztés</a>
@@ -54,6 +52,7 @@
         </tr>
         </tbody>
     </table>
+    <br/>
 </div>
 </body>
 </html>
