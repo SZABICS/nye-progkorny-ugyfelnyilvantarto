@@ -10,8 +10,6 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-@EqualsAndHashCode
-@ToString
 public class Users {
 
     private Integer id;

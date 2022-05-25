@@ -37,4 +37,24 @@ public class UsersTests {
         Users users1 = new Users();
         Assertions.assertNotNull(users1);
     }
+
+    @Test
+    public void testGettersAndSetters() {
+        testUser.setId(2);
+        testUser.setFirst_name("Teszt");
+        testUser.setLast_name("Másik teszt");
+        testUser.setE_mail("t@b.c");
+        testUser.setPhone("abc");
+        testUser.setIs_still_partner(0);
+        testUser.setTax_code("111");
+        testUser.setCompany("T Kft");
+
+        Assertions.assertEquals("Teszt", testUser.getFirst_name());
+        Assertions.assertEquals("Másik teszt", testUser.getLast_name());
+        Assertions.assertEquals("t@b.c", testUser.getE_mail());
+        Assertions.assertEquals("abc", testUser.getPhone());
+        Assertions.assertEquals(0, testUser.getIs_still_partner());
+        Assertions.assertEquals("111", testUser.getTax_code());
+        Assertions.assertEquals("T Kft", testUser.getCompany());
+    }
 }
