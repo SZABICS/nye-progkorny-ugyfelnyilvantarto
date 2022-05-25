@@ -36,7 +36,7 @@ public class UsersController {
     @PostMapping(path = "/adduser", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public String addUser(final Model model,
                           @ModelAttribute("user") Users usersRequest) {
-        usersRequest.setId(users.get(users.size() - 1).getId() + 1);
+        usersRequest.setId(users.size() + 1);
         users.add(usersRequest);
         model.addAttribute("users", users);
         return "redirect:/"+REDIRECT_URL_FOR_ALL_USER;
@@ -52,10 +52,7 @@ public class UsersController {
     @GetMapping(value = "/load/{id}")
     public ModelAndView loadExistsUser(final @PathVariable Integer id) {
         final ModelAndView userView = new ModelAndView(REDIRECT_URL_FOR_USER_EDIT);
-        final Users user = users.stream()
-                .filter(customer -> id.equals(customer.getId()))
-                .findAny()
-                .orElse(null);
+        final Users user = Users.streamUsersAndGiveBackResultById(users, id);
         userView.addObject("user", user);
         return userView;
     }
@@ -63,25 +60,16 @@ public class UsersController {
     @PostMapping(value = "/update/{id}", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public String updateUser(@ModelAttribute("user") Users usersRequest,
                              final @RequestParam(value = "id", required = false) Integer id, Model model) {
-        Users user = new Users();
-        user = users.stream()
-                .filter(customer -> id.equals(customer.getId()))
-                .findAny()
-                .orElse(null);
+        Users user = Users.streamUsersAndGiveBackResultById(users, id);
         users.set(users.indexOf(user), usersRequest);
         model.addAttribute("users", users);
         return "redirect:/"+REDIRECT_URL_FOR_ALL_USER;
     }
 
     @GetMapping(value = "/remove/{id}")
-    public String deleteUser( final @RequestParam(value = "id", required = false) Integer id, Model model) {
-        Users user = users.stream()
-                .filter(customer -> id.equals(customer.getId()))
-                .findAny()
-                .orElse(null);
-        if(user != null) {
-            users.remove(user);
-        }
+    public String deleteUser(@PathVariable(value = "id", required = true) Integer id, Model model) {
+        Users user = Users.streamUsersAndGiveBackResultById(users, id);
+        users.remove(user);
         model.addAttribute("users", users);
         return "redirect:/"+REDIRECT_URL_FOR_ALL_USER;
     }

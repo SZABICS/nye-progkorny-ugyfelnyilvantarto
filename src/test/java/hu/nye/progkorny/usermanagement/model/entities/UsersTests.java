@@ -1,5 +1,7 @@
 package hu.nye.progkorny.usermanagement.model.entities;
 
+import lombok.EqualsAndHashCode;
+import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,11 +12,20 @@ public class UsersTests {
 
     private List<Users> users;
     private Users testUser;
+    private Users testSecond;
 
     @BeforeEach
     public void init() {
         users = Users.getExists();
         testUser = new Users(1, "Elek", "Teszt", "teszt@teszt.hu", "+36705130022", "12345678-9-12", "Tesz Cég", 1);
+        testSecond = users.get(0);
+    }
+
+    @Test
+    public void testUserStreamerFunctionWillGiveBackTheRightUser() {
+        EqualsVerifier.simple().forClass(Users.class).verify();
+        Assertions.assertEquals(testSecond, Users.streamUsersAndGiveBackResultById(users, 1));
+        Assertions.assertTrue(testSecond.hashCode() == Users.streamUsersAndGiveBackResultById(users, 1).hashCode());
     }
 
     @Test
